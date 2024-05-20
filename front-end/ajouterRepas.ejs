@@ -1,0 +1,34 @@
+
+
+    <h1 id="title">Ajouter un Repas</h1>
+    <form
+      action="/repas/save"
+      method="POST"
+      enctype="multipart/form-data"
+      class="position-relative mx-auto w-75"
+    >
+      <label for="nom">Nom</label>
+      <input type="text" name="nom" required />
+      <br />
+      <label for="description">Description</label>
+      <textarea name="description" required></textarea>
+      <br />
+      <label for="prix">Prix</label>
+      <input type="number" name="prix" required />
+      <br />
+      <label for="url_image">Image</label>
+      <input type="file" name="url_image" accept="image/*" required />
+      <br />
+      <br />
+      <label for="id_categorie">Categorie</label>
+      <select name="id_categorie" required>
+        <% categories.forEach((categorie) => { %>
+        <option value="<%= categorie.id_categorie %>">
+          <%= categorie.nom %>
+        </option>
+        <% }); %>
+      </select>
+      <br />
+      <button type="submit" id="submitRepas">Ajouter un Repas</button>
+    </form>
+  

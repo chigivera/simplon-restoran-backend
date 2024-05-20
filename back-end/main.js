@@ -27,13 +27,14 @@ app.use(expressLayouts);
 app.set('view engine', 'ejs');
 
 // Use the restaurant routes
+app.use('/restaurant', express.static(path.join(__dirname, '../front-end')));
 app.use('/restaurant', restaurantRoutes);
 app.use('/employee', employeeRoutes);
 app.use('/repas', repasRoutes);
 app.use('/reservation', reservationRoutes);
 app.use('/contact',contactRoutes)
 app.use('/subscribe',newsRoutes)
-
+   
 // Routes
 app.get('/', (req, res) => {
   res.render('index', { title: 'Home Page' });
@@ -44,7 +45,7 @@ app.get('/about', (req, res) => {
 });
 
 app.get('/contact', (req, res) => {
-  res.render('contact', { title: 'Contact Us' });
+  res.render('contact', { title: 'Contact Us',layout:'layout' });
 });
 
 app.get('/register', (req, res) => {
