@@ -1,12 +1,13 @@
 // multerMiddleware.js
 const multer = require('multer');
+const { uuid } = require('uuidv4');
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, '../../front-end/img/repas'); // Define the destination folder for storing uploaded files
+    cb(null, '../front-end/img/employees'); // Define the destination folder for storing uploaded files
   },
   filename: function (req, file, cb) {
-    cb(null, uuidv4() + "-" + Date.now() + path.extname(file.originalname)); // Keep the original file name
+    cb(null, uuid() + "-" + Date.now() ); // Keep the original file name
   },
 });
 

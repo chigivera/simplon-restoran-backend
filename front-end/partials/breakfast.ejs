@@ -1,0 +1,31 @@
+<div class="tab-content">
+    <div id="tab-1" class="tab-pane fade show p-0 active">
+      <div class="row g-4">
+        <% repasList.forEach(repas => { %> <% if (repas.categorie.nom
+        === 'Breakfast') { %>
+        <div class="col-lg-6">
+          <div class="d-flex align-items-center">
+            <img
+              class="flex-shrink-0 img-fluid rounded"
+              src="<%= repas.url_image %>"
+              alt="<%= repas.nom %>"
+              style="width: 80px"
+            />
+            <div class="w-100 d-flex flex-column text-start ps-4">
+              <h5
+                class="d-flex justify-content-between border-bottom pb-2"
+              >
+                <span><%= repas.nom %></span>
+                <span class="text-primary"
+                  ><%= repas.prix %> MAD</span
+                >
+              </h5>
+              <small class="fst-italic"
+                ><%= repas.description %></small
+              >
+            </div>
+          </div>
+        </div>
+        <% } %> <% }); %>
+      </div>
+    </div>

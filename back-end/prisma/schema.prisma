@@ -38,13 +38,13 @@ model Repas {
   description String?    @db.Text
   prix        Decimal    @db.Decimal(10, 2)
   url_image   String?    @db.VarChar(255)
-  categorieId String?    @db.Char(36)
-  categorie   Categorie? @relation(fields: [categorieId], references: [id], onDelete: Cascade, onUpdate: NoAction)
-restaurantId String?    @db.Char(36)
-  restaurant   Restaurants? @relation(fields: [restaurantId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  id_categorie String?    @db.Char(36)
+  categorie   Categorie? @relation(fields: [id_categorie], references: [id], onDelete: Cascade, onUpdate: NoAction)
+id_restaurant String?    @db.Char(36)
+  restaurant   Restaurants? @relation(fields: [id_restaurant], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
-  @@index([categorieId])
-    @@index([restaurantId])
+  @@index([id_categorie])
+    @@index([id_restaurant])
 
 }
 

@@ -1,4 +1,16 @@
-
+<div class="container-xxl py-5 bg-dark hero-header mb-5">
+  <div class="container text-center my-5 pt-5 pb-4">
+      <h1 class="display-3 text-white mb-3 animated slideInDown">Ajouter Un Employee</h1>
+      <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-center text-uppercase">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item"><a href="#">Pages</a></li>
+              <li class="breadcrumb-item text-white active" aria-current="page">Contact</li>
+          </ol>
+      </nav>
+  </div>
+</div>
+</div>
 
     <h1 id="title">Ajouter un Employee</h1>
     <form
@@ -23,13 +35,11 @@
       <input type="text" name="twitter_url" />
       <br />
       <label for="id_restaurant">Restaurant</label>
-      <select name="id_restaurant" required>
-        <% restaurantsList.forEach((restaurant) => { %>
-        <option value="<%= restaurant.id_restaurant %>">
-          <%= restaurant.email %>
-        </option>
+      <select id="id_restaurant" name="id_restaurant" required>
+        <% restaurants.forEach((restaurant) => { %>
+        <option value="<%= restaurant.id %>"><%= restaurant.email %></option>
         <% }); %>
-      </select>
+      </select> <br />
       <br />
       <label for="url_image">Image</label>
       <input type="file" name="url_image" accept="image/*" />

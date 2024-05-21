@@ -1,5 +1,19 @@
 
 
+<div class="container-xxl py-5 bg-dark hero-header mb-5">
+  <div class="container text-center my-5 pt-5 pb-4">
+      <h1 class="display-3 text-white mb-3 animated slideInDown">Ajouter Un Repas</h1>
+      <nav aria-label="breadcrumb">
+          <ol class="breadcrumb justify-content-center text-uppercase">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item"><a href="#">Pages</a></li>
+              <li class="breadcrumb-item text-white active" aria-current="page">Contact</li>
+          </ol>
+      </nav>
+  </div>
+</div>
+</div>
+
     <h1 id="title">Ajouter un Repas</h1>
     <form
       action="/repas/save"
@@ -7,6 +21,13 @@
       enctype="multipart/form-data"
       class="position-relative mx-auto w-75"
     >
+    <label for="id_restaurant">Restaurant</label>
+<select id="id_restaurant" name="id_restaurant" required>
+  <% restaurants.forEach((restaurant) => { %>
+  <option value="<%= restaurant.id %>"><%= restaurant.email %></option>
+  <% }); %>
+</select> <br />
+
       <label for="nom">Nom</label>
       <input type="text" name="nom" required />
       <br />
@@ -21,13 +42,11 @@
       <br />
       <br />
       <label for="id_categorie">Categorie</label>
-      <select name="id_categorie" required>
+      <select id="id_categorie" name="id_categorie" required>
         <% categories.forEach((categorie) => { %>
-        <option value="<%= categorie.id_categorie %>">
-          <%= categorie.nom %>
-        </option>
+        <option value="<%= categorie.id %>"><%= categorie.nom %></option>
         <% }); %>
-      </select>
+      </select> <br />
       <br />
       <button type="submit" id="submitRepas">Ajouter un Repas</button>
     </form>

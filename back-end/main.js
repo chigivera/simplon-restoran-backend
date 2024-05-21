@@ -13,6 +13,7 @@ const repasRoutes = require('./routes/repasRoutes')
 const contactRoutes = require('./routes/contactRoutes');
 const newsRoutes = require('./routes/newsRoutes')
 const reservationRoutes = require('./routes/reservationRoutes')
+const categorieRoutes = require('./routes/categoryRoutes');
 
 
 // Middleware
@@ -28,6 +29,9 @@ app.set('view engine', 'ejs');
 
 // Use the restaurant routes
 app.use('/restaurant', express.static(path.join(__dirname, '../front-end')));
+app.use('/repas', express.static(path.join(__dirname, '../front-end')));
+app.use('/employee', express.static(path.join(__dirname, '../front-end')));
+app.use('/category', categorieRoutes);
 app.use('/restaurant', restaurantRoutes);
 app.use('/employee', employeeRoutes);
 app.use('/repas', repasRoutes);
