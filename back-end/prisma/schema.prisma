@@ -69,7 +69,7 @@ model Reservation {
   id                String    @id @default(uuid())
   nom_client        String    @db.VarChar(100)
   email_client      String    @db.VarChar(100)
-  date_reservation  DateTime
+  date_reservation  String @db.VarChar(100)
   nombre_clients    Int
   demandes_speciales String?  @db.Text
   cree_le           DateTime? @default(now())

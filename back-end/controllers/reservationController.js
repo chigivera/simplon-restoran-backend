@@ -5,7 +5,9 @@ const prisma = new PrismaClient();
 
 const createReservation = async (req, res) => {
   try {
-    const validatedData = reservationSchema.parse(req.body);
+    const date_reservation = new Date(req.body.date_reservation)
+    const validatedData = reservationSchema.parse({...req.body,nombre_clients: parseInt(req.body.nombre_clients),date_reservation:date_reservation.toISOString()});
+    console.log(validatedData)
     const reservation = await prisma.reservation.create({
       data: validatedData,
     });

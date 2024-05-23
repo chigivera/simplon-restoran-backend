@@ -40,6 +40,25 @@ const createRestaurant = async (req, res) => {
 const getRestaurantById = async (req, res) => {
   try {
     const { id } = req.params;
+    console.log(id)
+    const repasList = await prisma.repas.findMany({
+      where : {
+        restaurantId : id
+      },
+      include: {
+        categorie: true,
+      },
+    });
+
+    const employeeList = await prisma.employes.findMany({
+      where : {
+        restaurantId: id
+      }
+    });
+
+    // Check if the query parameter indicates email was sent successfully
+    const emailSent = req.query.emailSent === "true";
+    const emailSentQueryParam = req.query.emailSent;
     const restaurant = await prisma.restaurants.findUnique({
       where: {
         id: id,
@@ -50,7 +69,12 @@ const getRestaurantById = async (req, res) => {
       return res.status(404).json({ error: 'Restaurant not found' });
     }
 
-    res.render('index', { title: 'Home Page',restaurant:restaurant,layout:"layout" });
+    res.render('index', { title: 'Home Page',
+    repasList,
+    employeeList,
+    restaurant,
+    emailSent,
+    emailSentQueryParam,layout:"layout" });
 
   } catch (error) {
     console.error(error);

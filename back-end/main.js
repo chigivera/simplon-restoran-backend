@@ -14,6 +14,7 @@ const contactRoutes = require('./routes/contactRoutes');
 const newsRoutes = require('./routes/newsRoutes')
 const reservationRoutes = require('./routes/reservationRoutes')
 const categorieRoutes = require('./routes/categoryRoutes');
+const { port } = require('./config/config');
 
 
 // Middleware
@@ -35,13 +36,14 @@ app.use('/category', categorieRoutes);
 app.use('/restaurant', restaurantRoutes);
 app.use('/employee', employeeRoutes);
 app.use('/repas', repasRoutes);
+
 app.use('/reservation', reservationRoutes);
 app.use('/contact',contactRoutes)
 app.use('/subscribe',newsRoutes)
    
 // Routes
 app.get('/', (req, res) => {
-  res.render('index', { title: 'Home Page' });
+  res.redirect("/restaurant/63cdee5a-a221-4757-9324-941c0cd42f99")
 });
 
 app.get('/about', (req, res) => {
@@ -57,7 +59,7 @@ app.get('/register', (req, res) => {
 });
 
 // Start the server
-const PORT = process.env.PORT || 8000;
+const PORT = port;
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
