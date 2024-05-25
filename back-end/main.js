@@ -2,6 +2,7 @@ const express = require('express');
 const expressLayouts = require("express-ejs-layouts");
 const path = require('path');
 const cors = require("cors");
+const  {logData} =  require("./middlewares/logs.js");
 
 // Create an instance of the Express application
 const app = express();
@@ -21,12 +22,15 @@ const { port } = require('./config/config');
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
+app.use(logData);
 
 // Configure EJS as the template engine
 app.set('views', path.join(__dirname, '../front-end'));
 app.use(express.static(path.join(__dirname, '../front-end')));
 app.use(expressLayouts);
 app.set('view engine', 'ejs');
+
+
 
 // Use the restaurant routes
 app.use('/restaurant', express.static(path.join(__dirname, '../front-end')));
@@ -58,6 +62,9 @@ app.get('/register', (req, res) => {
   res.render('register', { title: 'Registration Page', layout: false });
 });
 
+app.use((req, res, next) => {
+  res.render("404");
+});
 // Start the server
 const PORT = port;
 app.listen(PORT, () => {
