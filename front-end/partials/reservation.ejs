@@ -15,7 +15,9 @@
                 action="/reservation/save"
                 method="POST"
                 >
+                <input type="hidden" name="adresse_restaurant" value="<%- restaurant.adresse %>">
                 <input type="hidden" name="email_restaurant" value="<%- restaurant.email %>">
+
                 <div class="row g-3">
                     <div class="col-md-6">
                       <div class="form-floating">

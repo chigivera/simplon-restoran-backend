@@ -1,14 +1,14 @@
 const sendEmail = require('../mailer');
 
 const reservationEmail = async (req, res, next) => {
-  const { email_restaurant, nom_client, email_client, date_reservation, nombre_clients, demandes_speciales } = req.body;
-
+  const { email_restaurant,adresse_restaurant, nom_client, email_client, date_reservation, nombre_clients, demandes_speciales } = req.body;
   const mailOptions = {
     from: email_restaurant,
     to: email_client,
     subject: 'Reservation Confirmation',
     template: 'reservation', // Name of the template file without extension
     context: {
+      restaurant: adresse_restaurant,
       name: nom_client,
       date: date_reservation,
       people: nombre_clients,
