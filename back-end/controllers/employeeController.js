@@ -7,7 +7,7 @@ const prisma = new PrismaClient();
 const addEmployee = async (req, res) => {
   try {
     const { nom, designation, facebook_url, instagram_url, twitter_url, id_restaurant } = req.body;
-    const url_image = req.file ? `/img/repas/${req.file.filename}` : null;
+    const url_image = req.file ? `/img/employees/${req.file.filename}` : null;
 
     // Parse and validate input data
     const validatedData = await employeeSchema.parseAsync({

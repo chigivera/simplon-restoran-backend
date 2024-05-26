@@ -47,11 +47,11 @@ app.use('/subscribe',newsRoutes)
    
 // Routes
 app.get('/', (req, res) => {
-  res.redirect("/restaurant/63cdee5a-a221-4757-9324-941c0cd42f99")
+  res.redirect('/restaurant')
 });
 
 app.get('/about', (req, res) => {
-  res.render('about', { title: 'About Us' });
+  res.render('about', { title: 'About Us' ,layout:'layout'});
 });
 
 app.get('/contact', (req, res) => {
@@ -59,11 +59,11 @@ app.get('/contact', (req, res) => {
 });
 
 app.get('/register', (req, res) => {
-  res.render('register', { title: 'Registration Page', layout: false });
+  res.render('register', { title: 'Registration Page' });
 });
 
 app.use((req, res, next) => {
-  res.render("404");
+  res.render("404",{title:"Bad Gateway",layout: false});
 });
 // Start the server
 const PORT = port;

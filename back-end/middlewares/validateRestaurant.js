@@ -8,8 +8,7 @@ const restaurantSchema = z.object({
   url_youtube: z.string().url().max(255).nullable().optional(),
   url_twitter: z.string().url().max(255).nullable().optional(),
   url_linkedin: z.string().url().max(255).nullable().optional(),
-  username: z.string().max(100),
-  password: z.string().max(255),
+  nom: z.string().max(100),
   specialty: z.string().max(255),
 });
 

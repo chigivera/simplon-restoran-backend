@@ -1,7 +1,7 @@
 // multerMiddleware.js
 const multer = require('multer');
 const { uuid } = require('uuidv4');
-
+const path = require("path")
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, '../front-end/img/employees'); // Define the destination folder for storing uploaded files

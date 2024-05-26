@@ -57,8 +57,7 @@ model Restaurants {
   url_youtube      String?    @db.VarChar(255) @default("")
   url_twitter      String?    @db.VarChar(255) @default("")
   url_linkedin     String?    @db.VarChar(255) @default("")
-  username         String     @db.VarChar(100)
-  password         String     @db.VarChar(255)
+  nom         String     @db.VarChar(100)
   specialty        String     @db.VarChar(255)
   employes         Employes[]
     repas         Repas[]

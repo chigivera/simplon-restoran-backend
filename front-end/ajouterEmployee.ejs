@@ -1,50 +1,42 @@
 <div class="container-xxl py-5 bg-dark hero-header mb-5">
   <div class="container text-center my-5 pt-5 pb-4">
-      <h1 class="display-3 text-white mb-3 animated slideInDown">Ajouter Un Employee</h1>
-      <nav aria-label="breadcrumb">
-          <ol class="breadcrumb justify-content-center text-uppercase">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item"><a href="#">Pages</a></li>
-              <li class="breadcrumb-item text-white active" aria-current="page">Contact</li>
-          </ol>
-      </nav>
+    <h1 class="display-3 text-white mb-3 animated slideInDown">Ajouter Un Employee</h1>
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb justify-content-center text-uppercase">
+        <li class="breadcrumb-item"><a href="#">Home</a></li>
+        <li class="breadcrumb-item"><a href="#">Pages</a></li>
+        <li class="breadcrumb-item text-white active" aria-current="page">Contact</li>
+      </ol>
+    </nav>
   </div>
 </div>
 </div>
+<section>
+  <div class="container">
+    <h1 id="title" class="text-center mb-5">Ajouter un Employee</h1>
+    <form action="/employee/save" method="POST" enctype="multipart/form-data" class="was-validated position-relative mx-auto w-75"
+      style="max-width: 500px;">
+      <div class="form-group mb-3"> <label for="nom" class="form-label">Nom</label> <input type="text" name="nom"
+          class="form-control" required> </div>
+      <div class="form-group mb-3"> <label for="designation" class="form-label">Designation</label> <input type="text"
+          name="designation" class="form-control" required> </div>
+      <div class="form-group mb-3"> <label for="facebook_url" class="form-label">Facebook URL</label> <input type="text"
+          name="facebook_url" class="form-control"> </div>
+      <div class="form-group mb-3"> <label for="instagram_url" class="form-label">Instagram URL</label> <input
+          type="text" name="instagram_url" class="form-control"> </div>
+      <div class="form-group mb-3"> <label for="twitter_url" class="form-label">Twitter URL</label> <input type="text"
+          name="twitter_url" class="form-control"> </div>
+      <div class="form-group mb-3"> <label for="id_restaurant" class="form-label">Restaurant</label> <select
+          id="id_restaurant" name="id_restaurant" class="form-control" required>
+          <% restaurants.forEach((restaurant)=> { %> <option value="<%= restaurant.id %>">
+              <%= restaurant.email %>
+            </option>
+            <% }); %>
+        </select> </div>
+      <div class="form-group mb-3"> <label for="url_image" class="form-label">Image</label> <input type="file"
+          name="url_image" accept="image/*" class="form-control"> </div>
+      <button type="submit" id="submitEmployee" class="btn btn-primary">Ajouter un Employe</button>
 
-    <h1 id="title">Ajouter un Employee</h1>
-    <form
-      action="/employee/save"
-      method="POST"
-      enctype="multipart/form-data"
-      class="position-relative mx-auto w-75"
-    >
-      <label for="nom">Nom</label>
-      <input type="text" name="nom" required />
-      <br />
-      <label for="designation">Designation</label>
-      <input type="text" name="designation" required />
-      <br />
-      <label for="facebook_url">Facebook URL</label>
-      <input type="text" name="facebook_url" />
-      <br />
-      <label for="instagram_url">Instagram URL</label>
-      <input type="text" name="instagram_url" />
-      <br />
-      <label for="twitter_url">Twitter URL</label>
-      <input type="text" name="twitter_url" />
-      <br />
-      <label for="id_restaurant">Restaurant</label>
-      <select id="id_restaurant" name="id_restaurant" required>
-        <% restaurants.forEach((restaurant) => { %>
-        <option value="<%= restaurant.id %>"><%= restaurant.email %></option>
-        <% }); %>
-      </select> <br />
-      <br />
-      <label for="url_image">Image</label>
-      <input type="file" name="url_image" accept="image/*" />
-      <br />
-      <br />
-      <button type="submit" id="submitEmployee">Ajouter un Employe</button>
     </form>
- 
+  </div>
+</section>
