@@ -38,13 +38,13 @@ model Repas {
   description String?    @db.Text
   prix        Decimal    @db.Decimal(10, 2)
   url_image   String?    @db.VarChar(255)
-  categorieId String?    @db.Char(36)
-  categorie   Categorie? @relation(fields: [categorieId], references: [id], onDelete: Cascade, onUpdate: NoAction)
-restaurantId String?    @db.Char(36)
-  restaurant   Restaurants? @relation(fields: [restaurantId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  id_categorie String?    @db.Char(36)
+  categorie   Categorie? @relation(fields: [id_categorie], references: [id], onDelete: Cascade, onUpdate: NoAction)
+id_restaurant String?    @db.Char(36)
+  restaurant   Restaurants? @relation(fields: [id_restaurant], references: [id], onDelete: Cascade, onUpdate: NoAction)
 
-  @@index([categorieId])
-    @@index([restaurantId])
+  @@index([id_categorie])
+    @@index([id_restaurant])
 
 }
 
@@ -57,8 +57,7 @@ model Restaurants {
   url_youtube      String?    @db.VarChar(255) @default("")
   url_twitter      String?    @db.VarChar(255) @default("")
   url_linkedin     String?    @db.VarChar(255) @default("")
-  username         String     @db.VarChar(100)
-  password         String     @db.VarChar(255)
+  nom         String     @db.VarChar(100)
   specialty        String     @db.VarChar(255)
   employes         Employes[]
     repas         Repas[]
@@ -69,7 +68,7 @@ model Reservation {
   id                String    @id @default(uuid())
   nom_client        String    @db.VarChar(100)
   email_client      String    @db.VarChar(100)
-  date_reservation  DateTime
+  date_reservation  String @db.VarChar(100)
   nombre_clients    Int
   demandes_speciales String?  @db.Text
   cree_le           DateTime? @default(now())

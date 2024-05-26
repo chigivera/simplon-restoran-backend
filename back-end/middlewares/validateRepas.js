@@ -7,6 +7,8 @@ const mealSchema = z.object({
   prix: z.number().min(0),
   url_image: z.string().nullable(),
   id_categorie: z.string().nullable(),
+  id_restaurant: z.string().nullable(),
+
 });
 
 module.exports = mealSchema;

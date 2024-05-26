@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+<% if (typeof repasList !== 'undefined' && repasList.length > 0) { %>
+
+>>>>>>> master
 <div class="container-xxl py-5">
     <div class="container">
         <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
@@ -35,6 +40,7 @@
                 </li>
             </ul>
             <div class="tab-content">
+<<<<<<< HEAD
                 <div id="tab-1" class="tab-pane fade show p-0 active">
                     <div class="row g-4">
                         <div class="col-lg-6">
@@ -339,3 +345,15 @@
         </div>
     </div>
 </div>
+=======
+                <%- include("./breakfast")%>
+                <%- include("./lunch")%>
+                <%- include("./dinner")%>
+
+            </div>
+        </div>
+    </div>
+</div>
+<% } else { %>
+    <% } %>
+>>>>>>> master
